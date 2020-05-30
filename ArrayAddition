@@ -1,0 +1,13 @@
+#This code calculates the array sum
+
+x = int()
+y = int()
+print("Enter the number of array elements you will be entering:\n")
+n = int(input())
+print("Enter the elements:")
+arr = [int(input()) for i in range(n)]
+
+for x in arr:
+    y += x
+
+print(y)
