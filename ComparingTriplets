@@ -12,31 +12,38 @@ The first line contains  space-separated integers, , , and , describing the resp
 The second line contains  space-separated integers, , , and , describing the respective values in triplet .
 '''
 
-result = list()
-A = int()
-B = int()
+#!/bin/python3
 
-print("Enter the first set of triplets")
-Alice = list(map(int, input().rstrip().split()))
-print("Enter the second set of triplets")
-Bob = list(map(int, input().rstrip().split()))
+import math
+import os
+import random
+import re
+import sys
 
-if Alice[0] < Bob[0]:
-    B =+ 1
-elif Alice[0] > Bob[0]:
-    A =+ 1
+# Complete the compareTriplets function below.
+def compareTriplets(a, b):
+    x = int()
+    y = int()
+    mylist = []
+    for i in range(3):
+        if a[i] < b[i]:
+            y +=1
+        elif a[i] > b[i]:
+            x +=1
+    mylist.append(x)
+    mylist.append(y)
+    return(mylist)
 
-if Alice[1] < Bob[1]:
-    B =+ 1
-elif Alice[1] > Bob[1]:
-    A =+ 1
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
 
-if Alice[2] < Bob[2]:
-    B =+ 1
-elif Alice[2] > Bob[2]:
-    A =+ 1
+    a = list(map(int, input().rstrip().split()))
 
-result.append(A)
-result.append(B)
+    b = list(map(int, input().rstrip().split()))
 
-print(result)
+    result = compareTriplets(a, b)
+
+    fptr.write(' '.join(map(str, result)))
+    fptr.write('\n')
+
+    fptr.close()
